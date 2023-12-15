@@ -6,7 +6,7 @@ namespace GildedRoseTests;
 
 public class GildedRoseTest
 {
-    //Existing behvaiour to pin based on GildedRoseRequirements.md
+    //Existing behaviour to pin based on GildedRoseRequirements.md
     [Test]
     public void QualityAndSellIn_ReduceOnNormalItems_AfterOneDay()
     {
@@ -76,7 +76,7 @@ public class GildedRoseTest
     public void Quality_IsNeverExceedsRelevantMax(string name, int expectedMax)
     {
         var items = new List<Item> { 
-            new() { Name = name, SellIn = 2, Quality = expectedMax},
+            new() { Name = name, SellIn = 2, Quality = expectedMax}
         };
         var app = new GildedRose.GildedRose(items);
         app.Update();
@@ -89,7 +89,7 @@ public class GildedRoseTest
     public void Sulfuras_NeverHasToBeSoldOrDecreasesInQuality()
     {
         var items = new List<Item> { 
-            new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 2, Quality = 80},
+            new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 2, Quality = 80}
         };
         //TODO: make SellIn a nullable int to represent that it never has to be sold
         
@@ -106,7 +106,7 @@ public class GildedRoseTest
     public void BackstagePasses_IncreasesInQuality_AsSellInValueApproaches()
     {
         var items = new List<Item> { 
-            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20},
+            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20}
         };
         var app = new GildedRose.GildedRose(items);
         app.Update();
@@ -121,7 +121,7 @@ public class GildedRoseTest
     public void BackstagePasses_IncreasesInQualityBy2_When10SellInDaysOrLess()
     {
         var items = new List<Item> { 
-            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 20},
+            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 20}
         };
         var app = new GildedRose.GildedRose(items);
         app.Update();
@@ -136,8 +136,7 @@ public class GildedRoseTest
     public void BackstagePasses_IncreasesInQualityBy3_When5SellInDaysOrLess()
     {
         var items = new List<Item> { 
-            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 20},
-        };
+            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 20}};
         var app = new GildedRose.GildedRose(items);
         app.Update();
         Assert.AreEqual(4, items[0].SellIn);
@@ -151,7 +150,7 @@ public class GildedRoseTest
     public void BackstagePasses_QualityDropsTo0_AfterConcert()
     {
         var items = new List<Item> { 
-            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 20},
+            new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 20}
         };
         var app = new GildedRose.GildedRose(items);
         app.Update();
