@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GildedRose.ItemHandlers;
 
 namespace GildedRose;
 
@@ -6,9 +7,17 @@ public class GildedRose(IEnumerable<Item> items)
 {
     public void Update()
     {
+   
+        var itemHandlerChain = 
+            new AgedBrieItemHandler(
+                new BackstagePassesItemHandler(
+                    new SulfurasItemHandler(
+                        new NormalItemHandler())));
+        
         foreach (var item in items)
         {
-            UpdateQuality(item);
+            if (item.Name == null) continue;
+            itemHandlerChain.HandleRequest(item);
         }
     }
 
