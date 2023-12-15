@@ -50,12 +50,9 @@ public class GildedRose(IEnumerable<Item> items)
                     }
                 }
             }
-
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.SellIn -= 1;
-            }
-
+            
+            UpdateSellIn(item);
+            
             if (item.SellIn < 0)
             {
                 if (item.Name != "Aged Brie")
@@ -83,5 +80,12 @@ public class GildedRose(IEnumerable<Item> items)
                     }
                 }
             }
+    }
+    private static void UpdateSellIn(Item item)
+    {
+        if (item.Name != "Sulfuras, Hand of Ragnaros")
+        {
+            item.SellIn -= 1;
+        }
     }
 }
