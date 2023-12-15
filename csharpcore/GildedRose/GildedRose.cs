@@ -52,32 +52,30 @@ public class GildedRose(IEnumerable<Item> items)
             }
             
             UpdateSellIn(item);
-            
-            if (item.SellIn < 0)
+
+            if (item.SellIn >= 0) return;
+            if (item.Name != "Aged Brie")
             {
-                if (item.Name != "Aged Brie")
+                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (item.Quality > 0)
                     {
-                        if (item.Quality > 0)
+                        if (item.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            if (item.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                item.Quality -= 1;
-                            }
+                            item.Quality -= 1;
                         }
-                    }
-                    else
-                    {
-                        item.Quality -= item.Quality;
                     }
                 }
                 else
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality += 1;
-                    }
+                    item.Quality -= item.Quality;
+                }
+            }
+            else
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
                 }
             }
     }
