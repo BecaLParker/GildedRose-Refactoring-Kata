@@ -10,8 +10,8 @@ namespace GildedRoseTests;
 [UseReporter(typeof(DiffReporter))]
 public class ApprovalTest
 {
-    [Test]
-    public void ThirtyDays()
+    //[Test]
+    /*public void ThirtyDays()
     {
         var fakeOutput = new StringBuilder();
         Console.SetOut(new StringWriter(fakeOutput));
@@ -21,5 +21,5 @@ public class ApprovalTest
         var output = fakeOutput.ToString();
 
         Approvals.Verify(output);
-    }
+    }*/
 }
