@@ -4,10 +4,16 @@ namespace GildedRose;
 
 public class GildedRose(IEnumerable<Item> items)
 {
-    public void UpdateQuality()
+    public void Update()
     {
         foreach (var item in items)
         {
+            UpdateQuality(item);
+        }
+    }
+
+    private static void UpdateQuality(Item item)
+    {
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (item.Quality > 0)
@@ -77,6 +83,5 @@ public class GildedRose(IEnumerable<Item> items)
                     }
                 }
             }
-        }
     }
 }
