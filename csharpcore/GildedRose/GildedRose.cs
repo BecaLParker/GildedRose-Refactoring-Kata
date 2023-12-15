@@ -2,7 +2,7 @@
 
 namespace GildedRose;
 
-public class GildedRose(IList<Item> items)
+public class GildedRose(IEnumerable<Item> items)
 {
     public void UpdateQuality()
     {
